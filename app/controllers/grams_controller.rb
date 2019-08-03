@@ -2,7 +2,7 @@ class GramsController < ApplicationController
     before_action :authenticate_model!, only: [:new, :create, :edit, :update, :destroy]
     
     def index
-
+      @grams = Gram.all
     end
     
     def new
@@ -11,8 +11,6 @@ class GramsController < ApplicationController
 
     def create
       @gram = current_model.grams.create(gram_params)
-
-
       if @gram.valid?
         redirect_to root_path
       else
@@ -21,6 +19,7 @@ class GramsController < ApplicationController
     end
 
     def show
+      
       @gram = Gram.find_by_id(params[:id])
       return render_not_found if @gram.blank?
     end
@@ -56,7 +55,7 @@ class GramsController < ApplicationController
     private
 
     def gram_params
-        params.require(:gram).permit(:message)
+        params.require(:gram).permit(:message, :picture)
     end
 
     def render_not_found(status=:not_found)
