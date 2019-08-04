@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "grams#index"
   resources :grams do
-    resources :grams, :picture, only: :create
+    resources :grams, only: :create
   end
 end

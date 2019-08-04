@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :comment do
+    
+  end
+
     factory :model do
       sequence :email do |n|
         "dummyEmail#{n}@gmail.com"
