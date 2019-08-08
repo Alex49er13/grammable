@@ -145,22 +145,20 @@ RSpec.describe GramsController, type: :controller do
     it "should successfully create a new gram in our database" do
       model = FactoryBot.create(:model)
       sign_in model
-
+    
       post :create, params: {
         gram: {
           message: 'Hello!',
           picture: fixture_file_upload("/picture.png", 'image/png')
         }
       }
-
-      post :create, params: { gram: { message: 'Hello!' } }
+    
       expect(response).to redirect_to root_path
-
+    
       gram = Gram.last
       expect(gram.message).to eq("Hello!")
       expect(gram.model).to eq(model)
-    end  
-
+    end
     it "should properly deal with validation errors" do
       model = FactoryBot.create(:model)
       sign_in model

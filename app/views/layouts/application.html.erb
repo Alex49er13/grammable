@@ -7,11 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,600,700' rel='stylesheet' type='text/css'>
+</head>  
   </head>
 
   <body>
+  <div class="top-nav">
+  <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+    <div class="brand float-left">
+      Grammable
+    </div>
+    <div class="add float-right">
   <% if current_model %>
       You're signed in as <%= current_model.email %>.
+      <%= link_to "New Post", new_gram_path %>
       <%= link_to "Sign out", destroy_model_session_path, method: :delete %>
     <% else %>
       <%= link_to "Sign In", new_model_session_path %>

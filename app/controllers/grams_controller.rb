@@ -1,6 +1,5 @@
 class GramsController < ApplicationController
     before_action :authenticate_model!, only: [:new, :create, :edit, :update, :destroy]
-    
     def index
       @grams = Gram.all
     end
@@ -51,13 +50,11 @@ class GramsController < ApplicationController
         redirect_to root_path
       end
 
-
     private
 
     def gram_params
         params.require(:gram).permit(:message, :picture)
     end
+  end
 
-    
 
-end
