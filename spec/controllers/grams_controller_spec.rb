@@ -162,7 +162,7 @@ RSpec.describe GramsController, type: :controller do
     it "should properly deal with validation errors" do
       model = FactoryBot.create(:model)
       sign_in model
-
+ 
       gram_count = Gram.count
       post :create, params: { gram: { message: '' } }
       expect(response).to have_http_status(:unprocessable_entity)
